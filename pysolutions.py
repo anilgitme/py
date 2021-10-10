@@ -260,3 +260,35 @@ It does not matter what you leave beyond the returned k (hence they are undersco
             count += 1
             nums[count] = nums[i]
     return count + 1
+
+
+    """
+Given a string s, reverse only all the vowels in the string and return it.
+
+The vowels are 'a', 'e', 'i', 'o', and 'u', and they can appear in both cases.
+"""
+
+def reverseVowels(s):
+    """
+    Input: s = "hello"
+    Output: "holle"
+    make the front and 1 at the back
+    use 2 points 1 index starting at the front one at the back of the arr
+    """
+    vowels = 'aeiou'
+    string = list(s)
+    i, j = 0, len(s) - 1
+    while i < j:
+        if string[i].lower() not in vowels:
+            i += 1
+        elif string[j].lower() not in vowels:
+            j -= 1
+        else:
+            # in case their is a match make a swap
+            string[i], string[j] = string[j], string[i]
+            j -= 1
+            i += 1
+    return "".join(string)
+    
+ 
+print(reverseVowels('hello'))   
