@@ -162,3 +162,101 @@ def reverseString(s):
         s[left], s[right] =  s[right], s[left]
         left += 1
         right -= 1
+
+#--------------------------------------------
+
+"""
+Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
+
+Notice that the solution set must not contain duplicate triplets.
+
+ 
+
+Example 1:
+
+Input: nums = [-1,0,1,2,-1,-4]
+Output: [[-1,-1,2],[-1,0,1]]
+Example 2:
+
+Input: nums = []
+Output: []
+Example 3:
+
+Input: nums = [0]
+Output: []
+"""
+
+def threeSum(nums):
+    """
+    [-1,0,1,2,-1,-4]
+    sort the list
+    use 2 points 1 left and 1 right increment each side as a triplet is found
+    
+    if their is less than 3 numbers in the array then res should be []
+    all nums = 0 should return [0, 0 ,0]
+    add 3 numbers in the array to see if the sum adds up to 0
+    use a dictionary to store the results return the keys at the end
+    """
+    def threeSum(nums):
+        if len(nums) < 3:
+            return []
+    
+        if(all(num == 0 for num in nums)):
+            return [[0, 0, 0]]
+    
+    size = len(nums)
+    triplets = {}
+    nums = sorted(nums)
+    for index, value in enumerate(nums):
+        left = index + 1
+        right = size - 1
+        
+        while left < right:
+            total = value + nums[left] + nums[right]
+            if total == 0:
+                current = (value, + nums[left], nums[right])
+                if current not in triplets:
+                    triplets[current] = True
+                right = right - 1
+            elif total < 0:
+                left = left + 1
+            else:
+                right = right - 1
+    return list(triplets.keys())
+
+
+
+# ---------------------------------------------------
+
+"""
+Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same.
+
+Since it is impossible to change the length of the array in some languages, you must instead have the result be placed in the first part of the array nums. More formally, if there are k elements after removing the duplicates, then the first k elements of nums should hold the final result. It does not matter what you leave beyond the first k elements.
+
+Return k after placing the final result in the first k slots of nums.
+
+Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1) extra memory.
+"""
+
+def removeDuplicates(nums):
+    """
+Input: nums = [1,1,2]
+Output: 2, nums = [1,2,_]
+
+check the size of the array or 0 or 1 should return the size
+make a count variable increment each time an elm dont match the next element 
+on the return increment count by 1
+Explanation: Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively.
+It does not matter what you leave beyond the returned k (hence they are underscores).
+    """
+    size = len(nums)
+    count = 0
+    if size == 0 or size == 1:
+        return size
+
+    for i in range(1 , size):
+    # If the current element is equal to the next element, skip
+        if nums[i] != nums[count]:
+            count += 1
+            nums[count] = nums[i]
+    return count + 1
