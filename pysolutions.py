@@ -272,7 +272,7 @@ def reverseVowels(s):
     """
     Input: s = "hello"
     Output: "holle"
-    make the front and 1 at the back
+    make on index front and 1 at the back
     use 2 points 1 index starting at the front one at the back of the arr
     """
     vowels = 'aeiou'
