@@ -272,8 +272,8 @@ def reverseVowels(s):
     """
     Input: s = "hello"
     Output: "holle"
-    make on index front and 1 at the back
     use 2 points 1 index starting at the front one at the back of the arr
+    check if each chr is a vowel if not increment if its at the front decrement if the index is at the back
     """
     vowels = 'aeiou'
     string = list(s)
