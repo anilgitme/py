@@ -291,4 +291,145 @@ def reverseVowels(s):
     return "".join(string)
     
  
-print(reverseVowels('hello'))   
+print(reverseVowels('hello'))
+
+# --------------------------------------------------
+
+
+"""
+You're given strings jewels representing the types of stones that are jewels, and stones representing the stones you have. Each character in stones is a type of stone you have. You want to know how many of the stones you have are also jewels.
+
+Letters are case sensitive, so "a" is considered a different type of stone from "A".
+"""
+
+class Soultion:
+    def numJewelsInStones(self, jewels: str, stones: str) -> int:
+        """
+        Example 1:
+
+        Input: jewels = "aA", stones = "aAAbbbb"
+        Output: 3
+        Example 2:
+
+        Input: jewels = "z", stones = "ZZ"
+        Output: 0
+        stones = "AnilGiTME"
+        jewels = "AGiT"
+        output should be 5
+        
+        test (numJewelsInStones("AnilGiTME", "AGiT")) ==> 5
+        test 2 (numJewelsInStones("AAAAA", "a"))  ===> 0
+        test 3 print(numJewelsInStones("", "A"))  ==> 0
+        
+        could use a loop to check if stone contains  a given jewel character
+        hash the given jewel and check if teh str contains that element in the hash increment 
+        count if it contains
+        """
+        
+        count = 0
+        myJewels = {}
+        if len(jewels) == 0:
+            return count
+        
+        for char in jewels:
+            myJewels[char] = 1
+        for letter in stones:
+            if letter in myJewels:
+                count += 1
+        return count
+
+
+
+
+        # --------------------------------------------------
+
+        """  
+Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
+   
+ 
+
+Example 1:
+
+Input: nums = [1,1,1,2,2,3], k = 2
+Output: [1,2]
+Example 2:
+
+Input: nums = [1], k = 1
+Output: [1]
+"""
+import collections
+
+# class Solution:
+#     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+#         """
+#         Input: nums = [1,1,1,2,2,3], k = 2
+#         Output: [1,2]
+#         1 and 2 are repeated k times so the output array includes them
+#         test 1 nums = []   => []
+#         test 2 nums = [2] => [2]
+#         test 3 nums = [3,3,3,3,3] => [3]
+        
+#         algo store the list in a hash
+#         loop through the hash and check if that value is repeated k times
+#         """
+        
+#         return [num for num, _ in collections.Counter(nums).most_common(k)] 
+
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        """
+        Input: nums = [1,1,1,2,2,3], k = 2
+        Output: [1,2]
+        1 and 2 are repeated k times so the output array includes them
+        test 1 nums = []   => []
+        test 2 nums = [2] => [2]
+        test 3 nums = [3,3,3,3,3] => [3]
+        
+        algo store the list in a hash
+        loop through the hash and check if that value is repeated k times
+        """
+        
+        return [num for num, _ in collections.Counter(nums).most_common(k)] 
+
+# -------------------------------------------------------------
+
+
+
+"""
+Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+
+You must implement a solution with a linear runtime complexity and use only constant extra space.
+
+ 
+
+Example 1:
+
+Input: nums = [2,2,1]
+Output: 1
+Example 2:
+
+Input: nums = [4,1,2,1,2]
+Output: 4
+""" 
+
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        """
+        none empty array
+        test1 nums = [1,1,1,1,1]
+        return -1
+        
+        store all elements in an dictionary
+        iterate through the dictionary and return the value that is 1
+        """
+        store_nums = dict()
+        for num in nums:
+            if num not in store_nums:
+                store_nums[num] = 1
+            else:
+                store_nums[num] += 1
+                
+        for key, value in store_nums.items():
+            if value == 1:
+                return key
+        return -1
