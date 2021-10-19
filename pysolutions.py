@@ -1,10 +1,4 @@
-"""
-Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 
-You may assume that each input would have exactly one solution, and you may not use the same element twice.
-
-You can return the answer in any order.
-"""
 def twoSum(nums, target):
     """
     use 2 loops 
@@ -21,41 +15,8 @@ def twoSum(nums, target):
             if nums[i] + nums[j] == target:
                 return [i, j]
             
-# output ==> [0, 1]
 
-# print(twoSum([0], 0))
-# ==>None
 
-#------------------------------------
-
-"""
-Given n non-negative integers a1, a2, ..., an , where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of the line i is at (i, ai) and (i, 0). Find two lines, which, together with the x-axis forms a container, such that the container contains the most water.
-
-Notice that you may not slant the container.
-
-Input: height = [1,8,6,2,5,4,8,3,7]
-Output: 49
-Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the container can contain is 49.
-Example 2:
-
-Input: height = [1,1]
-Output: 1
-Example 3:
-
-Input: height = [4,3,2,1,4]
-Output: 16
-Example 4:
-
-Input: height = [1,2,1]
-Output: 2
- 
-
-Constraints:
-
-n == height.length
-2 <= n <= 105
-0 <= height[i] <= 104
-"""
 
 def maxArea(height):
     """
@@ -76,29 +37,8 @@ update the max area of the given list on each iteration until the loops finishes
 
 #------------------------------------------------------
 
-"""
-Given a string s, find the length of the longest substring without repeating characters.
 
- 
 
-Example 1:
-
-Input: s = "abcabcbb"
-Output: 3
-Explanation: The answer is "abc", with the length of 3.
-Example 2:
-
-Input: s = "bbbbb"
-Output: 1
-Explanation: The answer is "b", with the length of 1.
-
-Input: s = "pwwkew"
-             i
-              j
-Output: 3
-Explanation: The answer is "wke", with the length of 3.
-Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
-"""
 
 def lengthOfLongestSubstring(str):
     """
@@ -126,29 +66,9 @@ def lengthOfLongestSubstring(str):
 
 #---------------------------------------------
 
-"""
-Write a function that reverses a string. The input string is given as an array of characters s.
 
- 
 
-Example 1:
 
-Input: s = ["h","e","l","l","o"]
-Output: ["o","l","l","e","h"]
-Example 2:
-
-Input: s = ["H","a","n","n","a","h"]
-Output: ["h","a","n","n","a","H"]
- 
-
-Constraints:
-
-1 <= s.length <= 105
-s[i] is a printable ascii character.
- 
-
-Follow up: Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1) extra memory.
-"""
 def reverseString(s):
     """
     Do not return anything, modify s in-place instead.
@@ -165,43 +85,15 @@ def reverseString(s):
 
 #--------------------------------------------
 
-"""
-Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
 
-Notice that the solution set must not contain duplicate triplets.
 
- 
 
-Example 1:
-
-Input: nums = [-1,0,1,2,-1,-4]
-Output: [[-1,-1,2],[-1,0,1]]
-Example 2:
-
-Input: nums = []
-Output: []
-Example 3:
-
-Input: nums = [0]
-Output: []
-"""
 
 def threeSum(nums):
-    """
-    [-1,0,1,2,-1,-4]
-    sort the list
-    use 2 points 1 left and 1 right increment each side as a triplet is found
+    if len(nums) < 3:
+        return []
     
-    if their is less than 3 numbers in the array then res should be []
-    all nums = 0 should return [0, 0 ,0]
-    add 3 numbers in the array to see if the sum adds up to 0
-    use a dictionary to store the results return the keys at the end
-    """
-    def threeSum(nums):
-        if len(nums) < 3:
-            return []
-    
-        if(all(num == 0 for num in nums)):
+    if(all(num == 0 for num in nums)):
             return [[0, 0, 0]]
     
     size = len(nums)
@@ -226,17 +118,9 @@ def threeSum(nums):
 
 
 
-# ---------------------------------------------------
 
-"""
-Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same.
 
-Since it is impossible to change the length of the array in some languages, you must instead have the result be placed in the first part of the array nums. More formally, if there are k elements after removing the duplicates, then the first k elements of nums should hold the final result. It does not matter what you leave beyond the first k elements.
 
-Return k after placing the final result in the first k slots of nums.
-
-Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1) extra memory.
-"""
 
 def removeDuplicates(nums):
     """
@@ -262,11 +146,7 @@ It does not matter what you leave beyond the returned k (hence they are undersco
     return count + 1
 
 
-    """
-Given a string s, reverse only all the vowels in the string and return it.
 
-The vowels are 'a', 'e', 'i', 'o', and 'u', and they can appear in both cases.
-"""
 
 def reverseVowels(s):
     """
@@ -296,11 +176,7 @@ print(reverseVowels('hello'))
 # --------------------------------------------------
 
 
-"""
-You're given strings jewels representing the types of stones that are jewels, and stones representing the stones you have. Each character in stones is a type of stone you have. You want to know how many of the stones you have are also jewels.
 
-Letters are case sensitive, so "a" is considered a different type of stone from "A".
-"""
 
 class Soultion:
     def numJewelsInStones(self, jewels: str, stones: str) -> int:
@@ -343,40 +219,11 @@ class Soultion:
 
         # --------------------------------------------------
 
-        """  
-Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
-   
- 
 
-Example 1:
-
-Input: nums = [1,1,1,2,2,3], k = 2
-Output: [1,2]
-Example 2:
-
-Input: nums = [1], k = 1
-Output: [1]
-"""
-import collections
-
-# class Solution:
-#     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-#         """
-#         Input: nums = [1,1,1,2,2,3], k = 2
-#         Output: [1,2]
-#         1 and 2 are repeated k times so the output array includes them
-#         test 1 nums = []   => []
-#         test 2 nums = [2] => [2]
-#         test 3 nums = [3,3,3,3,3] => [3]
-        
-#         algo store the list in a hash
-#         loop through the hash and check if that value is repeated k times
-#         """
-        
-#         return [num for num, _ in collections.Counter(nums).most_common(k)] 
 
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        import collections
         """
         Input: nums = [1,1,1,2,2,3], k = 2
         Output: [1,2]
@@ -391,26 +238,8 @@ class Solution:
         
         return [num for num, _ in collections.Counter(nums).most_common(k)] 
 
-# -------------------------------------------------------------
 
 
-
-"""
-Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
-
-You must implement a solution with a linear runtime complexity and use only constant extra space.
-
- 
-
-Example 1:
-
-Input: nums = [2,2,1]
-Output: 1
-Example 2:
-
-Input: nums = [4,1,2,1,2]
-Output: 4
-""" 
 
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
@@ -433,3 +262,77 @@ class Solution:
             if value == 1:
                 return key
         return -1
+
+
+# ---------------------------------------------------------
+        
+
+ 
+    
+class Solution:
+    # """
+    # get the sum on n store the result in a set/hash
+    # check if the same number is in the hash if it is 
+    # we are in a endless loop return false if the squared sum in 1
+    # return True
+    # """
+    def isHappy(self, n: int) -> bool:
+        visited = {n}
+        while True:
+            n = sum([int(num) ** 2 for num in str(n)])
+            
+            if n == 1:
+                return True
+            if n in visited:
+                return False
+            visited.add(n)
+            print(visited)
+        return False
+
+
+
+
+
+class Solution:
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        # Input: temperatures = [73,74,75,71,69,72,76,73]
+        #                 i
+        #                    j
+        #                 0  1  
+        #                  1   1  4  2 1  1  0  + 0
+        #                  0 - 1 = 1
+        #                  get the day by subtracting i and j
+        days = [0] * len(temperatures)
+        # initiliat the length of the result array to all 0s
+        
+        for i in range(0, len(temperatures)):
+            
+            for j in range(i + 1, len(temperatures)):
+                if temperatures[i] < temperatures[j]:
+                    days[i] = j - i
+                    # assign the current index of i in my result array
+                    break
+
+        return days
+
+
+
+
+
+class Solution:
+    def frequencySort(self, s: str) -> str:
+        letters = {}
+        string = ""
+        for char in s:
+            if char not in letters:
+                letters[char] = 1
+            else:
+                letters[char] += 1
+        # print(letters)        
+        rev_dict = sorted(letters.items(), key = lambda item: item[1], reverse=True)
+        # print(rev_dict)
+        for key, value in rev_dict:
+            string += key * value
+        return string
+
+
