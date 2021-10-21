@@ -8,4 +8,4 @@ class Solution:
             return ''.join(striped_words)
         for i in range(len(striped_words)-1, -1,-1):
             revWords.append(striped_words[i])
-        return " ".join(striped_words)
+        return " ".join(revWords)
