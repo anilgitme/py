@@ -153,7 +153,7 @@ def reverseVowels(s):
     Input: s = "hello"
     Output: "holle"
     use 2 points 1 index starting at the front one at the back of the arr
-    check if each chr is a vowel if not increment if its at the front decrement if the index is at the back
+    check if each chr is a vowel if not increment if its at the front..decrement if the index is at the back
     """
     vowels = 'aeiou'
     string = list(s)
@@ -232,8 +232,6 @@ class Solution:
         test 2 nums = [2] => [2]
         test 3 nums = [3,3,3,3,3] => [3]
         
-        algo store the list in a hash
-        loop through the hash and check if that value is repeated k times
         """
         
         return [num for num, _ in collections.Counter(nums).most_common(k)] 
