@@ -1,15 +1,5 @@
 
 def twoSum(nums, target):
-    """
-    use 2 loops 
-    compare the 2 indicies with the target
-    if its a match return the first occurance of the indicies 
-    
-    constrints: only one solution
-    [2,7,11,15] target: 9
-    should return (0, 1)  
-    """
-    
     for i in range(0, len(nums)):
         for j in range(i + 1, len(nums)):
             if nums[i] + nums[j] == target:
@@ -19,20 +9,12 @@ def twoSum(nums, target):
 
 
 def maxArea(height):
-    """
-tranverse the array with 2 loops
-first loop starts at the index 0 (i)
-second loop starts at index (i + 1) (j)
-update the max area of the given list on each iteration until the loops finishes
-    """
     area = 0
     for i in range(0, len(height)):
         print(height[i])
         for j in range(i + 1, len(height)):
             print(height[j])
-            area = max(area, min(height[j], height[i]) * (j - i))
-            # print(area)
-            # print(j - i)
+            area = max(area, min(height[j], height[i]) * (j - i))  
     return area
 
 #------------------------------------------------------
@@ -41,15 +23,6 @@ update the max area of the given list on each iteration until the loops finishes
 
 
 def lengthOfLongestSubstring(str):
-    """
-    use 2 points in the string (i, j)
-    str = 'a b c a b c b b'
-           i                     i remains constant 
-           j                     j is incremented by 1 each iteration
-           have a start point and max_len starting at (0)
-           if a duplicate char is found update the start point 
-           dict = {a: 2, b: 4, c: 2,}
-    """
     if len(str) == 0:
         return 0
     
