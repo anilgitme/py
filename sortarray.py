@@ -31,7 +31,6 @@ print(A.sortArray([9]))
 print(A.sortArray([0,0,0]))
 print(A.sortArray([1,2,3,4]))
 print(A.sortArray([4,3,2,1]))
-print(A.sortArray([-2,-1,-9,-5]))
 
 
 
