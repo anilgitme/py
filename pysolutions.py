@@ -46,9 +46,7 @@ def reverseString(s):
     """
     Do not return anything, modify s in-place instead.
     use 2 points of the string 1 right 1 left
-    ["h","e","l","l","o"]
-     l                 r
-     reassign left as right an right as left
+    
     """
     left, right = 0, len(s) -1
     while left < right:
@@ -96,16 +94,7 @@ def threeSum(nums):
 
 
 def removeDuplicates(nums):
-    """
-Input: nums = [1,1,2]
-Output: 2, nums = [1,2,_]
-
-check the size of the array or 0 or 1 should return the size
-make a count variable increment each time an elm dont match the next element 
-on the return increment count by 1
-Explanation: Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively.
-It does not matter what you leave beyond the returned k (hence they are underscores).
-    """
+    
     size = len(nums)
     count = 0
     if size == 0 or size == 1:
@@ -122,12 +111,7 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 
 def reverseVowels(s):
-    """
-    Input: s = "hello"
-    Output: "holle"
-    use 2 points 1 index starting at the front one at the back of the arr
-    check if each chr is a vowel if not increment if its at the front..decrement if the index is at the back
-    """
+   
     vowels = 'aeiou'
     string = list(s)
     i, j = 0, len(s) - 1
@@ -153,27 +137,7 @@ print(reverseVowels('hello'))
 
 class Soultion:
     def numJewelsInStones(self, jewels: str, stones: str) -> int:
-        """
-        Example 1:
-
-        Input: jewels = "aA", stones = "aAAbbbb"
-        Output: 3
-        Example 2:
-
-        Input: jewels = "z", stones = "ZZ"
-        Output: 0
-        stones = "AnilGiTME"
-        jewels = "AGiT"
-        output should be 5
-        
-        test (numJewelsInStones("AnilGiTME", "AGiT")) ==> 5
-        test 2 (numJewelsInStones("AAAAA", "a"))  ===> 0
-        test 3 print(numJewelsInStones("", "A"))  ==> 0
-        
-        could use a loop to check if stone contains  a given jewel character
-        hash the given jewel and check if teh str contains that element in the hash increment 
-        count if it contains
-        """
+       
         
         count = 0
         myJewels = {}
@@ -197,15 +161,7 @@ class Soultion:
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         import collections
-        """
-        Input: nums = [1,1,1,2,2,3], k = 2
-        Output: [1,2]
-        1 and 2 are repeated k times so the output array includes them
-        test 1 nums = []   => []
-        test 2 nums = [2] => [2]
-        test 3 nums = [3,3,3,3,3] => [3]
         
-        """
         
         return [num for num, _ in collections.Counter(nums).most_common(k)] 
 
