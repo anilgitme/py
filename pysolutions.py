@@ -158,67 +158,6 @@ class Soultion:
 
 
 
-class Solution:
-    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        import collections
-        
-        
-        return [num for num, _ in collections.Counter(nums).most_common(k)] 
-
-
-
-
-class Solution:
-    def singleNumber(self, nums: List[int]) -> int:
-        """
-        none empty array
-        test1 nums = [1,1,1,1,1]
-        return -1
-        
-        store all elements in an dictionary
-        iterate through the dictionary and return the value that is 1
-        """
-        store_nums = dict()
-        for num in nums:
-            if num not in store_nums:
-                store_nums[num] = 1
-            else:
-                store_nums[num] += 1
-                
-        for key, value in store_nums.items():
-            if value == 1:
-                return key
-        return -1
-
-
-# ---------------------------------------------------------
-        
-
- 
-    
-class Solution:
-    # """
-    # get the sum on n store the result in a set/hash
-    # check if the same number is in the hash if it is 
-    # we are in a endless loop return false if the squared sum in 1
-    # return True
-    # """
-    def isHappy(self, n: int) -> bool:
-        visited = {n}
-        while True:
-            n = sum([int(num) ** 2 for num in str(n)])
-            
-            if n == 1:
-                return True
-            if n in visited:
-                return False
-            visited.add(n)
-            print(visited)
-        return False
-
-
-
-
 
 class Solution:
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
