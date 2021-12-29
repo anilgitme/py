@@ -1,18 +1,22 @@
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
-        count = 0
         left = 0
         right = len(nums) - 1
+        count = 0
+        size = len(nums)
         
-        while left < len(nums):
+        if val not in nums:
+            return size
+        
+        while left < size:
             if nums[left] == val:
-                nums[left] = ''
                 count += 1
+                nums[left] = ""
                 nums[left], nums[right] = nums[right], nums[left]
                 right -= 1
             else:
                 left += 1
-        return len(nums) - count
+        return size - count
     
 A = Solution()
 
